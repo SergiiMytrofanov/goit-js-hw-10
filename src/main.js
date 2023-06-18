@@ -1,11 +1,12 @@
 
+import Notiflix from 'notiflix'
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
 
 const selectElement = document.querySelector('.breed-select');
 const catInfoContainer = document.querySelector('.cat-info');
 
 
-function populateOptions(breeds) {
+function renderBreedOptions(breeds) {
     breeds.forEach(breed => {
         const option = document.createElement('option');
         option.value = breed.id;
@@ -16,30 +17,17 @@ function populateOptions(breeds) {
 
 
 function displayCatInfo(cat) {
- 
-    catInfoContainer.innerHTML = '';
-
-
-    const catImage = document.createElement('img');
-    catImage.src = cat.url;
-    catInfoContainer.appendChild(catImage);
-
-
-    const catName = document.createElement('h2');
-    catName.textContent = cat.breeds[0].name;
-    catInfoContainer.appendChild(catName);
-
-    
-    const catDescription = document.createElement('p');
-    catDescription.textContent = cat.breeds[0].description;
-    catInfoContainer.appendChild(catDescription);
-
-    
-    const catTemperament = document.createElement('p');
-    catTemperament.textContent = `Temperament: ${cat.breeds[0].temperament}.`;
-    catInfoContainer.appendChild(catTemperament);
-}
-
+    catInfoContainer.innerHTML = createMarkup(cat);
+  }
+  
+  function createMarkup(cat) {
+    return `
+    <img src="${cat.url}" alt="Cat Image" class="js-cat-image">
+    <h2 class="js-cat-name">${cat.breeds[0].name}</h2>
+    <p class="js-cat-description">Description: ${cat.breeds[0].description}.</p>
+    <p class="js-cat-temperament">Temperament: ${cat.breeds[0].temperament}.</p>
+    `;
+  }
 
 selectElement.addEventListener('change', () => {
     const selectedBreedId = selectElement.value;
@@ -49,14 +37,16 @@ selectElement.addEventListener('change', () => {
         })
         .catch(error => {
             console.error('Failed to fetch cat:', error);
+            Notiflix.Notify.failure('Failed to fetch cat. Please try again.');
         });
 });
 
-// Call fetchBreeds and handle the returned promise
+
 fetchBreeds()
     .then(breeds => {
-        populateOptions(breeds);
+        renderBreedOptions(breeds);
     })
     .catch(error => {
         console.error('Failed to fetch breeds:', error);
+        Notiflix.Notify.failure('Failed to fetch breeds. Please try again.');
     });

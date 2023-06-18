@@ -1,0 +1,39 @@
+body {
+    background-color: #1f1f1f; 
+    color: #ffffff; 
+    text-align: center; 
+  }
+
+  h1 {
+    color: #b42343;
+  }
+  
+  .container {
+    margin: 0 auto; 
+    max-width: 801px; 
+    padding: 20px; 
+  }
+
+.js-cat-image {
+    width: 800px;
+    height: auto;
+  }
+  
+  .js-cat-name {
+    color: #7f7a9b;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .js-cat-description {
+    color: #7f7a9b;
+    font-size: 16px;
+    max-width: 800px;
+    
+  }
+  
+  .js-cat-temperament {
+    color: #7f7a9b;
+    font-size: 14px;
+    margin-top: 5px;
+  }
