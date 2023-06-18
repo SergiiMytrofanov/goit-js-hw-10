@@ -1,8 +1,10 @@
-import SlimSelect from 'slim-select'
+// import SlimSelect from 'slim-select'
 
-new SlimSelect({
-  select: '#selectElement'
-})
+// new SlimSelect({
+//   select: '#selectElement'
+// })
 
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
+
+
 
