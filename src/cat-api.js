@@ -4,11 +4,7 @@ const BREEDS_ENDPOINT = 'breeds';
 const IMAGES_ENDPOINT = 'images/search';
 
 export function fetchBreeds() {
-    return fetch(`${BASE_URL}${BREEDS_ENDPOINT}`, {
-        headers: {
-            'x-api-key': API_KEY
-        }
-    })
+    return fetch(`${BASE_URL}${BREEDS_ENDPOINT}?${API_KEY}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);
@@ -23,13 +19,7 @@ export function fetchBreeds() {
 }
 
 export function fetchCatByBreed(breedId) {
-    const url = `${BASE_URL}${IMAGES_ENDPOINT}?breed_ids=${breedId}`;
-
-    return fetch(url, {
-        headers: {
-            'x-api-key': API_KEY
-        }
-    })
+    return fetch(`${BASE_URL}${IMAGES_ENDPOINT}?breed_ids=${breedId}&api_key=${API_KEY}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);
