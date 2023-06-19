@@ -14,9 +14,11 @@ export function fetchBreeds() {
                 throw new Error(response.status);
             }
             return response.json();
+        
         })
         .catch(error => {
             console.warn(error);
+            document.querySelector('.error').removeAttribute('hidden');
         });
 }
 
@@ -42,5 +44,6 @@ export function fetchCatByBreed(breedId) {
         })
         .catch(error => {
             console.warn(error);
+            document.querySelector('.error').removeAttribute('hidden');
         });
 }

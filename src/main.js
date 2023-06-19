@@ -34,10 +34,12 @@ selectElement.addEventListener('change', () => {
     fetchCatByBreed(selectedBreedId)
         .then(cat => {
             displayCatInfo(cat);
+            document.querySelector('.error').setAttribute('hidden', true);
         })
         .catch(error => {
             console.error('Failed to fetch cat:', error);
             Notiflix.Notify.failure('Failed to fetch cat. Please try again.');
+            document.querySelector('.error').removeAttribute('hidden');
         });
 });
 
@@ -49,4 +51,5 @@ fetchBreeds()
     .catch(error => {
         console.error('Failed to fetch breeds:', error);
         Notiflix.Notify.failure('Failed to fetch breeds. Please try again.');
+        document.querySelector('.error').removeAttribute('hidden');
     });
