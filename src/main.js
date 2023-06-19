@@ -24,9 +24,9 @@ function displayCatInfo(cat) {
     return `
     <img src="${cat.url}" alt="Cat Image" class="js-cat-image">
     <h2 class="js-cat-name">${cat.breeds[0].name}</h2>
-    <p class="js-cat-description">Description: ${cat.breeds[0].description}.</p>
-    <p class="js-cat-temperament">Temperament: ${cat.breeds[0].temperament}.</p>
-    `;
+    <p class="js-cat-text"><strong class= "js-light-text">Description:</strong> ${cat.breeds[0].description}.</p>
+    <p class="js-cat-text"><strong class= "js-light-text">Temperament:</strong> ${cat.breeds[0].temperament}.</p>
+  `;
   }
 
 selectElement.addEventListener('change', () => {

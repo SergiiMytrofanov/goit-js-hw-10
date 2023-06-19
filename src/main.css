@@ -7,7 +7,9 @@ body {
   h1 {
     color: #b42343;
   }
-  
+  h2{
+    color: #aaa6c4;
+  }
   .container {
     margin: 0 auto; 
     max-width: 801px; 
@@ -25,15 +27,19 @@ body {
     margin-bottom: 10px;
   }
   
-  .js-cat-description {
+  .js-cat-text {
     color: #7f7a9b;
     font-size: 16px;
     max-width: 800px;
+     margin-top: 5px;
+  }
+    
+
+  .js-light-text {
     
   }
-  
-  .js-cat-temperament {
-    color: #7f7a9b;
-    font-size: 14px;
-    margin-top: 5px;
+
+  .error{
+    color: #aaa6c4;
   }
+  
