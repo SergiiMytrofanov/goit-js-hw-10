@@ -4,16 +4,19 @@ import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
 
 const selectElement = document.querySelector('.breed-select');
 const catInfoContainer = document.querySelector('.cat-info');
-
+const breedOptions = [];
 
 function renderBreedOptions(breeds) {
-    breeds.forEach(breed => {
+    breedOptions.push(
+      ...breeds.map(breed => {
         const option = document.createElement('option');
         option.value = breed.id;
         option.textContent = breed.name;
-        selectElement.appendChild(option);
-    });
-}
+        return option;
+      })
+    );
+    selectElement.append(...breedOptions);
+  }
 
 
 function displayCatInfo(cat) {
